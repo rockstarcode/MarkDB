@@ -8,7 +8,5 @@ php:
 before_install:
   - composer self-update
   - composer install
-  
 
-
-script: "phpunit tests/LibraryTest.php"
+script: "phpunit tests/"
