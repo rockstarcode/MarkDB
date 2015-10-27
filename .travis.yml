@@ -1,0 +1,12 @@
+language: php
+
+php:
+  - 5.6
+  - 5.5
+  - hhvm
+
+before_install:
+  - composer self-update
+
+
+script: "phpunit tests/LibraryTest.php"

@@ -1,5 +1,10 @@
 ## MarkDB - MarkDown Database for Blogs/CMSs
 
+### Installation
+```
+    composer require "rockstarcode/markdb" 
+```
+
 ### Usage
 
 ```php
@@ -10,3 +15,6 @@ $MarkDb = new MarkDB\MarkDB('/path/to/files/','base/path/to/form/relative/slugs'
 $article = $MarkDb->get($slug);
 
 ```
+
+### Laravel
+
