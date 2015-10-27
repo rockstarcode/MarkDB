@@ -1,0 +1,26 @@
+{
+    "name": "rockstarcode/markdb",
+    "description": "Markdown flat file database",
+    "type": "vcs",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rulian Estivalletti",
+            "email": "rulian@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+        "nesbot/carbon": "~1.14",
+        "erusev/parsedown":"^1.6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    },
+    "minimum-stability": "alpha",
+    "autoload": {
+        "psr-4": {
+            "MarkDb\\": "src/"
+        }
+    }
+}
