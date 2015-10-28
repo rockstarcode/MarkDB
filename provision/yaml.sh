@@ -1,2 +1,2 @@
 apt-get install -y libyaml-dev
-pecl install yaml-beta
+pear install pecl/yaml
