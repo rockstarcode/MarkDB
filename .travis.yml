@@ -8,8 +8,8 @@ php:
 
 
 install:
-  - sudo provision/yaml.sh
-  - sudo phpenv config-add provision/yaml.ini
+  - sudo bash ./provision/yaml.sh
+  - sudo phpenv config-add ./provision/yaml.ini
 
 script:
   - composer install

@@ -1,2 +1,2 @@
-apt-get install -qq libyaml-dev
+apt-get install -y libyaml-dev
 pecl install yaml-beta
