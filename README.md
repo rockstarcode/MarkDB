@@ -53,7 +53,7 @@ Everything between ```---``` will be processed as yaml, below the second ```---`
 
 ### Installation
 ```
-    composer require "rockstarcode/markdb" 
+    composer require "rockstarcode/markdb:dev-master"
 ```
 
 
@@ -72,7 +72,7 @@ $article = $MarkDb->get($slug); # (object) Article
    $article->read_time()    # helper to calculate words in article and average read time
    $article->summary()      # Extract certain percentage of content for preview 
 
-$find = $MarkDb->where(['author'=>'Author Name','category'=>'Books I've Read']);  (Array)[Articles]
+$find = $MarkDb->where(['author'=>'Author Name','category'=>'Books Ive Read']);  (Array)[Articles]
 
 foreach($MarkDb->libraries as $library){
      $library->articles     # list of articles within library
@@ -88,6 +88,9 @@ foreach($MarkDb->libraries as $library){
 MarkDB comes with a Laravel 5.* Service Provider which will add MarkDB as a facade to your application
 
 ```php
+# .env
+MARKDB_PATH=/path/to/blog-cms
+
 # config/app.php
     
     'providers'=>[

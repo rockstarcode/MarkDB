@@ -5,7 +5,7 @@ namespace MarkDB\Support\Laravel;
 use Illuminate\Support\ServiceProvider;
 use MarkDB\MarkDb;
 
-class CmsServiceProvider extends ServiceProvider {
+class MarkDBServiceProvider extends ServiceProvider {
 
     public function register()
     {
