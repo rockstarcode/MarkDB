@@ -4,7 +4,7 @@ php:
   - 5.5
 
 before_script:
-  - pecl install yaml-beta
+  - pecl install yaml
   - phpenv config-add ./provision/yaml.ini
 
 script:
