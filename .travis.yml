@@ -5,7 +5,12 @@ php:
   - 5.5
   - hhvm
 
-before_install:
-  - composer install
 
-script: "phpunit tests/"
+
+install:
+  - sudo provision/yaml.sh
+  - sudo phpenv config-add provision/yaml.ini
+
+script:
+  - composer install
+  - phpunit tests/
