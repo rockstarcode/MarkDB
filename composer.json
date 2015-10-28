@@ -15,7 +15,7 @@
         "erusev/parsedown":"^1.6"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4.0"
+        "phpunit/phpunit": "~4.4.0@stable"
     },
     "minimum-stability": "alpha",
     "autoload": {
