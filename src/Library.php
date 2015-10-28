@@ -17,6 +17,7 @@ class Library {
     public $fingerprint;
     public $slug;
     public $name;
+    public $array_filter;
     public $attributes = [];
     public $index = [];
     public $libraries = [];
@@ -56,10 +57,42 @@ class Library {
 
     }
 
+    /**
+     * @param Closure $func
+     *
+     * Sets a function which handles how array collections should be created provided the $items, $page, and $limit for pagination.
+     */
+    public function setArrayFilter($func){
+        $this->array_filter = $func;
+    }
+
+    /**
+     * @param $items
+     * @param $pagination
+     * @return array|mixed
+     * Handles the conversion of $items into a consumable collection with pagination
+     */
+    public function collection($items, $pagination){
+
+        if (empty($pagination)){
+            $pagination = ['page'=>1,'limit'=>count($items)];
+        }
+
+        if (is_callable($this->array_filter)) {
+            return call_user_func_array($this->array_filter, [$items, $pagination['page'], $pagination['limit']]);
+        }
+
+        return  array_slice($items, (($pagination['page'] - 1) * $pagination['limit']), $pagination['limit']);
+    }
+
     public function parent(){
         return (!empty($this->base) && $this->slug == $this->base) ? false : $this->parent;
     }
 
+    /**
+     * @param $object[Article|Library]
+     * Insert the object into their placeholders dependent on object type
+     */
     public function attach($object){
 
         if ($object instanceof Article){
@@ -74,6 +107,12 @@ class Library {
 
     }
 
+    /**
+     * @param $object[Article|Library]
+     *
+     * Insert into the index the slug and path of the object for reference by get() or where()
+     */
+
     public function index($object){
         $this->index[(string) $object->slug->relativeTo($this->slug)] = $object;
         $this->paths[(string) $object->path] = $object;
@@ -84,6 +123,9 @@ class Library {
 
     }
 
+    /**
+     * Set library settings based on path or existance of .markdb in directory
+     */
 
     public function settings(){
         if (is_file($this->path.'/.markdb')){
@@ -111,11 +153,22 @@ class Library {
 
     }
 
+    /**
+     * @param $slug
+     * @return (object) Article | Library
+     * Return an article or library based ont he slug path defined in the index
+     *
+     */
 
     public function get($slug){
         return empty($this->index[$slug]) ? null : $this->index[$slug];
     }
 
+    /**
+     * @param array $conditions
+     * @return array
+     * Search for articles based on article properties declared in YAML
+     */
     public function where($conditions = []){
         $found = [];
 
@@ -135,16 +188,17 @@ class Library {
         return $found;
     }
 
-    public function type($compare = false){
-        $class =  get_class($this);
-        $split = explode('\\',$class);
-        $item = array_pop($split);
-
-        if (!empty($compare)){
-            return strtolower(trim($compare)) == strtolower(trim($item));
+    /**
+     * @param $item
+     * @param $args
+     * @return array|mixed|null
+     * Allows convertion of index, articles, libraries into paginated array collections
+     */
+    public function __call($item,$args){
+        $pagination= !empty($args) ? current($args) : false;
+        if (property_exists($this,$item)){
+            return $this->collection($this->{$item},$pagination);
         }
-
-        return $item;
-
+        return null;
     }
 }
