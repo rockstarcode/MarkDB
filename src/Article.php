@@ -101,8 +101,5 @@ class Article{
         return MarkDb::markdown($this->content);
     }
 
-    public function url(){
-        return route('post',['slug'=>$this->slug]);
-    }
 }
 
