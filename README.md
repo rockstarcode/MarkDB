@@ -1,5 +1,6 @@
 ## MarkDB - MarkDown Database for Blogs/CMSs
 
+MarkDB is an engine that 
 ### Installation
 ```
     composer require "rockstarcode/markdb" 

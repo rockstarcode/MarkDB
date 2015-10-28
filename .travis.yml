@@ -8,8 +8,8 @@ php:
 
 
 before_script:
-  - sudo bash ./provision/yaml.sh
-  - sudo phpenv config-add ./provision/yaml.ini
+  - bash ./provision/yaml.sh
+  - phpenv config-add ./provision/yaml.ini
 
 script:
   - composer install
