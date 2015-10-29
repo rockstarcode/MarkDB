@@ -133,9 +133,6 @@ a sample route to see articles in Laravel :
   }])->where('slug','(.*)');
 ```
 
-<<<<<<< HEAD
-=======
 ## License
 
 Released under MIT license, feel free to use, modify, contribute changes. 
->>>>>>> dev
