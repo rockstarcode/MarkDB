@@ -111,7 +111,7 @@ a sample route to see articles in Laravel :
           
           $markdb= app()->make('markdb');
           
-          $posts = $cms->articles( /*optional*/ ['page'=>1, 'limit'=>10]);
+          $articles = $cms->articles( /*optional*/ ['page'=>1, 'limit'=>10]);
            
           return view('index',['articles'=>$articles]); 
            
@@ -119,9 +119,9 @@ a sample route to see articles in Laravel :
     
   Route::get('/posts/{slug}', ['as'=>'post','uses'=>function($slug){
         
-        $post = \MarkDB::get($slug);
+        $article = \MarkDB::get($slug);
          
-        return view('post',['article'=>$article]); 
+        return view('article',['article'=>$article]); 
          
   }])->where('slug','(.*)');
 ```
