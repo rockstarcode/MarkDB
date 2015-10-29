@@ -1,3 +1,10 @@
+[![Build Status](https://travis-ci.org/rockstarcode/markdb.png)](https://travis-ci.org/rockstarcode/markdb)
+[![Latest Stable Version](https://poser.pugx.org/rockstarcode/markdb/v/stable)](https://packagist.org/rockstarcode/markdb)
+[![Total Downloads](https://poser.pugx.org/rockstarcode/markdb/downloads)](https://packagist.org/packages/rockstarcode/markdb)
+[![Latest Unstable Version](https://poser.pugx.org/rockstarcode/markdb/v/unstable)](https://packagist.org/packages/rockstarcode/markdb)
+[![Daily Downloads](https://poser.pugx.org/rockstarcode/markdb/d/daily)](https://packagist.org/packages/rockstarcode/markdb)
+
+
 ## MarkDB - MarkDown Database for Blogs/CMSs
 
 MarkDB is an engine that allows you to use MarkDown + Yaml files as data points for your CMS or Blog. 
