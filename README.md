@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/rockstarcode/markdb.png)](https://travis-ci.org/rockstarcode/markdb)
+[![Build Status](https://travis-ci.org/82rules/MarkDB.png)](https://travis-ci.org/82rules/MarkDB)
 [![Latest Stable Version](https://poser.pugx.org/rockstarcode/markdb/v/stable)](https://packagist.org/rockstarcode/markdb)
 [![Total Downloads](https://poser.pugx.org/rockstarcode/markdb/downloads)](https://packagist.org/packages/rockstarcode/markdb)
 [![Latest Unstable Version](https://poser.pugx.org/rockstarcode/markdb/v/unstable)](https://packagist.org/packages/rockstarcode/markdb)
