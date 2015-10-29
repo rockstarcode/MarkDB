@@ -1,1 +1,0 @@
-pyrus install pecl/yaml
