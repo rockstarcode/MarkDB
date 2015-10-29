@@ -1,9 +1,9 @@
 <?php
 
-namespace MarkDB\Support\Laravel;
+namespace MarkDb\Support\Laravel;
 
 use Illuminate\Support\ServiceProvider;
-use MarkDB\MarkDb;
+use MarkDb\MarkDb;
 
 class MarkDBServiceProvider extends ServiceProvider {
 
@@ -11,7 +11,23 @@ class MarkDBServiceProvider extends ServiceProvider {
     {
         $this->app->singleton('markdb', function($app)
         {
-            return new MarkDb(env('MARKDB_PATH'));
+            $markdb =  new MarkDb(env('MARKDB_PATH'));
+
+            /**
+             * converts collection of arrays into
+             */
+            $markdb->setArrayFilter(function($array, $page, $limit) use($markdb){
+
+                return new \Illuminate\Pagination\LengthAwarePaginator(
+                    array_slice($markdb->articles, (($page - 1) * $limit), $limit),
+                    count($markdb->articles),
+                    $limit
+                );
+
+            });
+
+            return $markdb;
+
         });
 
     }

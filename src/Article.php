@@ -17,17 +17,6 @@ class Article{
     private $yaml;
     private $content;
 
-    public function type($compare = false){
-        $class =  get_class($this);
-        $split = explode('\\',$class);
-        $item = array_pop($split);
-
-        if (!empty($compare)){
-            return strtolower(trim($compare)) == strtolower(trim($item));
-        }
-
-        return $item;
-    }
 
     public function parent(){
         return $this->parent;

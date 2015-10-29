@@ -95,24 +95,31 @@ MARKDB_PATH=/path/to/blog-cms
     
     'providers'=>[
         ...
-        \MarkDB\Support\Laravel\MarkDBServiceProvider::class,
+        \MarkDb\Support\Laravel\MarkDBServiceProvider::class,
     ],
     
     'aliases' => [
         ...
-        'MarkDB' => \MarkDB\Support\Laravel\MarkDBFacade::class,
+        'MarkDb' => \MarkDB\Support\Laravel\MarkDBFacade::class,
     ]
 ```
 a sample route to see articles in Laravel : 
 
 ```php
 #routes.php
-  
+  Route::get('/posts, ['as'=>'posts','uses'=>function($slug){
+          
+          $markdb= app()->make('markdb');
+          
+          $posts = $cms->articles( /*optional*/ ['page'=>1, 'limit'=>10]);
+           
+          return view('index',['articles'=>$articles]); 
+           
+    }])->where('slug','(.*)');
+    
   Route::get('/posts/{slug}', ['as'=>'post','uses'=>function($slug){
         
-        $markdb = app()->make("markdb");
-        
-        $article = $markdb->get($slug);
+        $post = \MarkDB::get($slug);
          
         return view('post',['article'=>$article]); 
          

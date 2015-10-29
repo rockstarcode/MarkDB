@@ -1,6 +1,6 @@
 <?php
 
-namespace MarkDB\Support\Laravel;
+namespace MarkDb\Support\Laravel;
 use Illuminate\Support\Facades\Facade;
 
 /**
