@@ -3,15 +3,18 @@ language: php
 php:
   - 5.5
 
-before_install:
-  - pecl channel-update pecl.php.net
-  - (CFLAGS="-O1 -g3 -fno-strict-aliasing"; pecl install yaml < /dev/null &)
-  - composer self-update
-
 addons:
   apt:
     packages:
       - libyaml-dev
+
+before_install:
+  - pecl channel-update pecl.php.net
+  - (CFLAGS="-O1 -g3 -fno-strict-aliasing"; pecl install yaml < /dev/null &)
+  - echo "extension=yaml.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - composer self-update
+
+
 script:
   - composer install --dev
   - vendor/phpunit/phpunit/phpunit tests/
