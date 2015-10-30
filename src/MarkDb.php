@@ -15,7 +15,7 @@ class MarkDb extends Library {
 
     public function __construct($directory, $base = ''){
         $this->directory = $directory;
-        $this->base = $base;
+        $this->base = !empty($base) ? $base : $directory;
         parent::__construct($directory);
     }
 

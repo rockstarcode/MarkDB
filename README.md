@@ -133,6 +133,10 @@ a sample route to see articles in Laravel :
   }])->where('slug','(.*)');
 ```
 
+### Tutorial
+I created a simple Lumen + MarkDB tutorial which steps you thru basic usage
+[RockstarCode - Lumen + MarkDB](http://www.rockstarcode.com/posts/tutorials/laravel/markdb)
+
 ## License
 
 Released under MIT license, feel free to use, modify, contribute changes. 
