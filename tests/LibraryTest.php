@@ -61,5 +61,14 @@ class LibraryTest extends BaseTester
 
     }
 
+    public function testArticleSettings()
+    {
+        $markdb = new MarkDb\MarkDb('./tests/test_library/dir2');
+
+        $article = current($markdb->articles);
+        $this->assertEquals($article->authdeck,'author.name');
+
+    }
+
 }
 ?>

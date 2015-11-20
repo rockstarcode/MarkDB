@@ -130,7 +130,7 @@ class Library {
     public function settings(){
         if (is_file($this->path.'/.markdb')){
 
-            $attributes = yaml_parse_file($this->path.'/.markdb');
+            $attributes = \Symfony\Component\Yaml\Yaml::parse(file_get_contents($this->path.'/.markdb'));
             $this->attributes = $attributes;
 
             foreach($attributes as $key=>$value){

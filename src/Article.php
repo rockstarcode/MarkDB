@@ -63,9 +63,7 @@ class Article{
     public function settings($yaml){
 
         if (!empty($yaml)){
-
-            $attributes = yaml_parse($yaml);
-
+            $attributes = \Symfony\Component\Yaml\Yaml::parse($yaml);
             foreach($attributes as $key=>$value){
                 if (empty($this->{$key})) {
                     $this->{$key} = $value;

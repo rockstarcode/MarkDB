@@ -55,7 +55,7 @@ Everything between ```---``` will be processed as yaml, below the second ```---`
 
 
 ### Requirements
-* LibYaml & pecl yaml for PHP
+* ~~LibYaml & pecl yaml for PHP~~ Updated to symfony/yaml to remove dependency
 * Carbon for data time 
 
 ### Installation
